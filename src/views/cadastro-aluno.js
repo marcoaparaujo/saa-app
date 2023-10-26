@@ -81,16 +81,18 @@ function CadastroAluno() {
   }
 
   async function buscar() {
-    await axios.get(`${baseURL}/${idParam}`).then((response) => {
-      setDados(response.data);
-    });
-    setId(dados.id);
-    setMatricula(dados.matricula);
-    setNome(dados.nome);
-    setCpf(dados.cpf);
-    setEmail(dados.email);
-    setCelular(dados.celular);
-    setIdCurso(dados.idCurso);
+    if (idParam != null) {
+      await axios.get(`${baseURL}/${idParam}`).then((response) => {
+        setDados(response.data);
+      });
+      setId(dados.id);
+      setMatricula(dados.matricula);
+      setNome(dados.nome);
+      setCpf(dados.cpf);
+      setEmail(dados.email);
+      setCelular(dados.celular);
+      setIdCurso(dados.idCurso);
+    }
   }
 
   const [dadosCursos, setDadosCursos] = React.useState(null);
